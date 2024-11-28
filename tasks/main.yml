@@ -1,0 +1,14 @@
+---
+# tasks file for apache
+- name: Install apache server
+  ansible.builtin.apt:
+    name: apache2
+    state: present
+
+- name: copy file with user and group
+  ansible.builtin.copy:
+    src: files/index.html
+    dest: /var/www/html/
+    owner: root
+    group: root
+    mode: '0644'
